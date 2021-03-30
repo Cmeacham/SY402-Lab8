@@ -28,12 +28,10 @@ def recurs(Directory, LogList, WriteLog): #sha):
     
     if Directory == "/":
         rootDir = "Yes"
-    
 
     OsDir = os.listdir(Directory)
     # Example Output: 
     # [test.htm, stamp, faq.htm, _vti_txt, robots.txt, itemlisting, resumelisting, writing_effective_resume.htm, advertisebusiness.htm, papers, resume]
-    
     
     # Sorting of the files in the directory list discovered earlier -----------------------------------
     for val in OsDir:
@@ -74,7 +72,6 @@ def recurs(Directory, LogList, WriteLog): #sha):
             print() 
             # ---------------------------------------------------------------
             
-            
             # Store everything into the log file 
             # *file directory*
             # *file's hash*
@@ -83,7 +80,6 @@ def recurs(Directory, LogList, WriteLog): #sha):
 
         # This checks if the path given is a directory using .isdir() function from os library
         if os.path.isdir(tempDir):
-            
             
             # Checks to make sure the directory isn't in the list of directories to not go into 
             if tempDir not in NoGoList:
