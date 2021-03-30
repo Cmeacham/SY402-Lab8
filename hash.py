@@ -53,6 +53,8 @@ def recurs(Directory, LogList, WriteLog): #sha):
                 ModF.append(tempDir) 
             
             elif tempDir not in LogList:
+                print(LogList[LogList.index(tempDir)+1])
+                print(sha)
                 NewF.append(tempDir)
             # ----------------------------------------------------------------------
             
