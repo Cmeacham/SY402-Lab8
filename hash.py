@@ -20,13 +20,15 @@ def recurs(Directory, LogList, WriteLog): #sha):
     #The directories we should not be worrying about
     NoGoList = ["/dev","/proc","/run","/sys","/tmp","/var/lib", "/var/run"]
     
-    rootDir = "Yes"
-    if Directory != "/":
-        rootDir = "No"
-        # Directory would be os.path at first 
-        # ex. D:/workspace/python/
-        DirectoryList = Directory.split("/")
-        # Result: ['D:','workspace', 'python']
+    rootDir = "No"
+    # Directory would be os.path at first 
+    # ex. D:/workspace/python/
+    DirectoryList = Directory.split("/")
+    # Result: ['D:','workspace', 'python']
+    
+    if Directory == "/":
+        rootDir = "Yes"
+    
 
     OsDir = os.listdir(Directory)
     # Example Output: 
