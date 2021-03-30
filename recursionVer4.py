@@ -8,9 +8,7 @@ import sys
 import hashlib
 
 
-def recurs(Directory, ReadLog, WriteLog, sha, ModF, NewF, MissF):
-    
-    LogList = ReadLog.split()
+def recurs(Directory, LogList, WriteLog, sha, ModF, NewF, MissF):
     
     # Directory would be os.path at first 
     # ex. D:/workspace/python/
@@ -33,7 +31,12 @@ def recurs(Directory, ReadLog, WriteLog, sha, ModF, NewF, MissF):
             for block in iter(lambda: tempRead.read(4096),b""):
                 sha.update(block)   
             
-            if tempDir in LogList:
+            if tempDir in LogList: #Updates
+                
+                ModF.append(tempDir) #Keeps the list of the updated files
+                WriteLog.write(tempDir+"\n"+sha.hexdigest()+"\n"+now.strftime("%Y-%m-%d %H:%M:%S")+"\n\n")
+                
+            
                 
             else:    
                 
@@ -53,7 +56,7 @@ def recurs(Directory, ReadLog, WriteLog, sha, ModF, NewF, MissF):
                 # *file directory*
                 # *file's hash*
                 # *time/date of observation*
-                Log.write(tempDir+"\n"+sha.hexdigest()+"\n"+now.strftime("%Y-%m-%d %H:%M:%S")+"\n\n")    
+                WriteLog.write(tempDir+"\n"+sha.hexdigest()+"\n"+now.strftime("%Y-%m-%d %H:%M:%S")+"\n\n")    
 
         if os.path.isdir(tempDir): #If the value is a directory
             if ("dev"== val) or ("proc" == val) or ("run" == val) or ("sys" == val) or ("tmp" == val) or ("lib" == val) or ("run" == val):
@@ -83,12 +86,12 @@ def main():
     
     #Will be used later on for the hashing portion
     shaVal = hashlib.sha256()
-    ReadFile = open("RecursiveLog.txt", "r")
+    ReadFile = open("RecursiveLog.txt", "r").read().split("\n")
     WriteFile = open("RecursiveLog.txt", "w")
     
     recurs(sys.argv[1], ReadFile, WriteFile, shaVal, ModifiedFiles, NewFiles, MissingFiles)
     
-    Ofile.close()
+    WriteFile.close()
 
 
 main()
