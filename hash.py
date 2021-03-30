@@ -28,10 +28,12 @@ def recurs(Directory, LogList, WriteLog): #sha):
     
     if Directory == "/":
         rootDir = "Yes"
+    
 
     OsDir = os.listdir(Directory)
     # Example Output: 
     # [test.htm, stamp, faq.htm, _vti_txt, robots.txt, itemlisting, resumelisting, writing_effective_resume.htm, advertisebusiness.htm, papers, resume]
+    
     
     # Sorting of the files in the directory list discovered earlier -----------------------------------
     for val in OsDir:
@@ -43,7 +45,7 @@ def recurs(Directory, LogList, WriteLog): #sha):
             tempDir = tempDir[1:]
         # '/home/meach/Documents/SY485' <-- Example of how it will look
         # -------------------------------------------------------------------
-        print(tempDir)    
+        
         # This checks if the path given is a file using .isfile() function from os library
         if os.path.isfile(tempDir):
             # Adding to the Compare list to use for later with MissF
@@ -71,6 +73,7 @@ def recurs(Directory, LogList, WriteLog): #sha):
             print(now.strftime("%Y-%m-%d %H:%M:%S"))
             print() 
             # ---------------------------------------------------------------
+            
             
             # Store everything into the log file 
             # *file directory*
