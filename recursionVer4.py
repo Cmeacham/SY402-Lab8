@@ -1,4 +1,4 @@
-# Name: Christopher Meacham
+# Name: Christopher Meacham and Mary-Margaret West
 # Subject: SY402 Lab 08 Version 3
 # Description: This version of the recursive file has the same functionalities as the previous version. The only update to this one is that it checks the already made log file and updates the hashes of the files then prints out a summary of any new files, missing files, or modified.
 
