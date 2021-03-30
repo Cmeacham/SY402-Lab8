@@ -38,7 +38,7 @@ def recurs(Directory, LogList, WriteLog): #sha):
     for val in OsDir:
         
         # Will bring the list back to a directory format --------------------
-        if rootDir == "Yes:
+        if rootDir == "Yes":
             tempDir = val
         else:
             DirectoryList.append(val)
