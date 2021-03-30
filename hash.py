@@ -37,7 +37,7 @@ def recurs(Directory, LogList, WriteLog): #sha):
     
     # Sorting of the files in the directory list discovered earlier -----------------------------------
     for val in OsDir:
-        print(tempDir)
+        
         # Will bring the list back to a directory format --------------------
         DirectoryList.append(val)
         tempDir = "/".join(DirectoryList)
@@ -45,7 +45,7 @@ def recurs(Directory, LogList, WriteLog): #sha):
             tempDir = tempDir[1:]
         # '/home/meach/Documents/SY485' <-- Example of how it will look
         # -------------------------------------------------------------------
-            
+        print(tempDir)    
         # This checks if the path given is a file using .isfile() function from os library
         if os.path.isfile(tempDir):
             # Adding to the Compare list to use for later with MissF
