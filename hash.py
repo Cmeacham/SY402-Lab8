@@ -34,15 +34,15 @@ def recurs(Directory, LogList, WriteLog): #sha):
     # Example Output: 
     # [test.htm, stamp, faq.htm, _vti_txt, robots.txt, itemlisting, resumelisting, writing_effective_resume.htm, advertisebusiness.htm, papers, resume]
     
+    
     # Sorting of the files in the directory list discovered earlier -----------------------------------
     for val in OsDir:
         
         # Will bring the list back to a directory format --------------------
+        DirectoryList.append(val)
+        tempDir = "/".join(DirectoryList)
         if rootDir == "Yes":
-            tempDir = val
-        else:
-            DirectoryList.append(val)
-            tempDir = "/".join(DirectoryList)
+            tempDir = tempDir[1:]
         # '/home/meach/Documents/SY485' <-- Example of how it will look
         # -------------------------------------------------------------------
             
