@@ -48,16 +48,10 @@ def recurs(Directory, LogList, WriteLog): #sha):
             # -----------------------------------------------------
             
             # This portion checks if the file is new or modified ------
-            print(tempDir)
-            if (tempDir in LogList):
-                print("In")
-                print(LogList[LogList.index(tempDir)+1])
-                if (sha != LogList[LogList.index(tempDir)+1]):
-                    ModF.append(tempDir) 
+            if (tempDir in LogList) and (sha != LogList[LogList.index(tempDir)+1]):
+                ModF.append(tempDir) 
             
             elif tempDir not in LogList:
-                print("Not in")
-                print(sha)
                 NewF.append(tempDir)
             # ----------------------------------------------------------------------
             
@@ -100,13 +94,13 @@ def main():
     # shaVal = hashlib.sha256()
     
     # If the file we need to read exists or not using .exists() from os library----------------------
-    if os.path.exists("/home/meach/Documents/RecursiveLog.txt"):
+    if os.path.exists(os.getcwd()+"/RecursiveLog.txt"):
         ReadFile = open("RecursiveLog.txt", "r").read().split("\n")
     else:
         TempOpenFile = open("RecursiveLog.txt", "w").close()
         ReadFile = open("RecursiveLog.txt", "r").read().split("\n")
     # -----------------------------------------------------------------------------------------------
-    print(ReadFile)
+    
     # Where we will be logging the information    
     WriteFile = open("RecursiveLog.txt", "w")
 
