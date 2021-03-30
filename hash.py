@@ -18,7 +18,7 @@ ComprtoMiss = []
 def recurs(Directory, LogList, WriteLog): #sha): 
     
     #The directories we should not be worrying about
-    NoGoList = ["/dev","/proc","/run","/sys","/tmp","/var/lib", "/var/run"]
+    NoGoList = ["/dev","/proc","/run","/sys","/tmp","/var/lib", "/var/run","/proc/sys/fs"]
     
     rootDir = "No"
     # Directory would be os.path at first 
@@ -84,11 +84,12 @@ def recurs(Directory, LogList, WriteLog): #sha):
         # This checks if the path given is a directory using .isdir() function from os library
         if os.path.isdir(tempDir):
             
+            
             # Checks to make sure the directory isn't in the list of directories to not go into 
-            if val not in NoGoList:
+            if tempDir not in NoGoList:
                 # Recursively go further into the directories to print the file names
                 recurs(tempDir, LogList, WriteLog) # sha)
-        
+            
         
         # Done with that file/directory and will need to continue going through the list
         DirectoryList.pop() 
