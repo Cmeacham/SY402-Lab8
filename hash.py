@@ -16,13 +16,17 @@ ComprtoMiss = []
 
 # Recursive Function ---------------------------------------------------------------------------------------------------
 def recurs(Directory, LogList, WriteLog): #sha): 
+    
     #The directories we should not be worrying about
     NoGoList = ["/dev","/proc","/run","/sys","/tmp","/var/lib", "/var/run"]
     
-    # Directory would be os.path at first 
-    # ex. D:/workspace/python/
-    DirectoryList = Directory.split("/")
-    # Result: ['D:','workspace', 'python']
+    rootDir = "Yes"
+    if Directory != "/":
+        rootDir = "No"
+        # Directory would be os.path at first 
+        # ex. D:/workspace/python/
+        DirectoryList = Directory.split("/")
+        # Result: ['D:','workspace', 'python']
 
     OsDir = os.listdir(Directory)
     # Example Output: 
@@ -32,8 +36,11 @@ def recurs(Directory, LogList, WriteLog): #sha):
     for val in OsDir:
         
         # Will bring the list back to a directory format --------------------
-        DirectoryList.append(val)
-        tempDir = "/".join(DirectoryList)
+        if rootDir == "Yes:
+            tempDir = val
+        else:
+            DirectoryList.append(val)
+            tempDir = "/".join(DirectoryList)
         # '/home/meach/Documents/SY485' <-- Example of how it will look
         # -------------------------------------------------------------------
             
