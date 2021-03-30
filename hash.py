@@ -56,6 +56,7 @@ def recurs(Directory, LogList, WriteLog): #sha):
                     ModF.append(tempDir) 
             
             elif tempDir not in LogList:
+                print("Not in")
                 print(sha)
                 NewF.append(tempDir)
             # ----------------------------------------------------------------------
@@ -105,7 +106,7 @@ def main():
         TempOpenFile = open("RecursiveLog.txt", "w").close()
         ReadFile = open("RecursiveLog.txt", "r").read().split("\n")
     # -----------------------------------------------------------------------------------------------
-
+    print(ReadFile)
     # Where we will be logging the information    
     WriteFile = open("RecursiveLog.txt", "w")
 
