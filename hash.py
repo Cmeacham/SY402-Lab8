@@ -48,12 +48,13 @@ def recurs(Directory, LogList, WriteLog): #sha):
             # -----------------------------------------------------
             
             # This portion checks if the file is new or modified ------
+            print(tempDir)
             if (tempDir in LogList) and (sha != LogList[LogList.index(tempDir)+1]): 
                 print(LogList[LogList.index(tempDir)+1])
                 ModF.append(tempDir) 
             
             elif tempDir not in LogList:
-                print(LogList[LogList.index(tempDir)+1])
+                
                 print(sha)
                 NewF.append(tempDir)
             # ----------------------------------------------------------------------
