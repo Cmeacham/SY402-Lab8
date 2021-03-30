@@ -37,7 +37,7 @@ def recurs(Directory, LogList, WriteLog): #sha):
     
     # Sorting of the files in the directory list discovered earlier -----------------------------------
     for val in OsDir:
-        
+        print(tempDir)
         # Will bring the list back to a directory format --------------------
         DirectoryList.append(val)
         tempDir = "/".join(DirectoryList)
