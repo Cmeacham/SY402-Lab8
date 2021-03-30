@@ -1,4 +1,4 @@
-# Name: Christopher Meacham
+# Name: Christopher Meacham and Mary-Margaret West
 # Subject: SY402 Lab 08 Version 3
 # Description: This version of the recursive file has the same functionalities as the previous version. The only difference is that this implements the use of the SHA256 hashing algorithm found in the hashlib library. No notable differences other that that as well as the python script opening a log file to store the SHA256 hashes along with the files' info.
 
